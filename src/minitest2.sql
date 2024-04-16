@@ -157,19 +157,31 @@ VALUES (40,3,2,7),
 
 -- Tim kiem HV co ho Nguyen
 select * from Students
+left join Classes C on Students.classes_id = C.id
+left join Point P on Students.id = P.student_id
+left join Address A on A.id = Students.address_id
 where fullname like 'Nguyen %';
 
 -- Tim kiem HV co ten Anh
 select * from Students
+left join Classes C on Students.classes_id = C.id
+left join Point P on Students.id = P.student_id
+left join Address A on A.id = Students.address_id
 where fullname like '% Anh';
 
 -- Tim kiem HV do tuoi 15 - 18
 select * from Students
+left join Classes C on Students.classes_id = C.id
+left join Address A on Students.address_id = A.id
+left join Point P on Students.id = P.student_id
 where age between 15 and 18;
 
 -- Tim kiem HV co id = 12 hoac 13
-select * from Students
-where id = 12 or id = 13;
+select * from Students S
+left join Classes C on C.id = S.classes_id
+left join Point P on S.id = P.student_id
+left join Classes C2 on C2.id = S.classes_id
+where S.id = 12 or S.id = 13;
 
 -- Thong ke so luong hoc vien cac lop COUNT
 select C.name as 'Ten lop', count(*) as 'So luong HV' from Students
