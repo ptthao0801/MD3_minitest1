@@ -217,3 +217,4 @@ select UCASE(S.fullname) as 'Ten HS' from Students S;
 
 
 
+
